@@ -19,10 +19,7 @@
 
 - (CGFloat)updateLayoutIfNeeded
 {
-    if (self.scrollView.contentSize.height < FLT_EPSILON
-        && ([self.scrollView isKindOfClass:[UITableView class]]
-            || [self.scrollView isKindOfClass:[UICollectionView class]])
-        )
+    if (self.scrollView == nil)
     {
         return 0.f;
     }
