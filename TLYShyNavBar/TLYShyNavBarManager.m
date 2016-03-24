@@ -243,6 +243,14 @@ static void * const kTLYShyNavBarManagerKVOContext = (void*)&kTLYShyNavBarManage
         return;
     }
 
+    NSUInteger index = [self.scrollViewController.scrollView.subviews indexOfObjectPassingTest:^BOOL (id obj, NSUInteger idx, BOOL *stop) {
+        return [obj isKindOfClass:[UIRefreshControl class]];
+    }];
+
+    if (index != NSNotFound) {
+        self.scrollViewController.refreshControl = [self.scrollViewController.scrollView.subviews objectAtIndex:index];
+    }
+
     if (!isnan(self.previousYOffset))
     {
         // 1 - Calculate the delta
