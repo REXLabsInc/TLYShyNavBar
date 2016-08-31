@@ -43,6 +43,7 @@
     if (normalizedY < -FLT_EPSILON)
     {
         CGRect frame = self.scrollView.frame;
+		insets.bottom = 0;
         frame = UIEdgeInsetsInsetRect(frame, insets);
 
         self.scrollView.frame = frame;
